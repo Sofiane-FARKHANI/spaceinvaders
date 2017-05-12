@@ -47,7 +47,7 @@ public class SpaceInvaders {
 		return vaisseau != null;
 	}
 
-	public void positionnerUnNouveauVaisseau(int x, int y) throws HorsEspaceJeuException {
+	public void positionnerUnNouveauVaisseau(int x, int y) {
 
 		if (((x < 0) || (x >= longueur)) || ((y < 0) || (y >= hauteur)))
 			throw new HorsEspaceJeuException("Vous êtes en dehors de l'espace jeu");
