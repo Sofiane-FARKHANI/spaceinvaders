@@ -6,14 +6,14 @@ public class Vaisseau {
 	    int y;
 	    int longueur;
 	    int hauteur;
-
-	    public Vaisseau(int x, int y) {
-		    this.longueur=1;
-		    this.hauteur=1;
-		    this.x = x;
-		    this.y = y;
-	    }
 	
+	    public Vaisseau(int longueur, int hauteur) {
+			this.longueur=longueur;
+			this.hauteur=hauteur;
+			this.x = 0;
+			this.y = 0;
+		}
+	    
 	    public Vaisseau(int longueur, int hauteur, int x, int y) {
 		   this.longueur=longueur;
 		   this.hauteur=hauteur;
@@ -40,5 +40,10 @@ public class Vaisseau {
 	public void seDeplacerVersLaGauche() {
 		this.x = this.x - 1;
 	}
+	
+	public void positionner(int x, int y) {
+	    this.x = x;
+	    this.y = y;
+    }
 
 }
