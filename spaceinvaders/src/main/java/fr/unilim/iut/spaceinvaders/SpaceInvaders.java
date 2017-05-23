@@ -19,7 +19,7 @@ public class SpaceInvaders implements Jeu {
 	public void initialiserJeu() {
 		Position positionVaisseau = new Position(this.longueur/2,this.hauteur-1);
 		Dimension dimensionVaisseau = new Dimension(Constante.VAISSEAU_LONGUEUR, Constante.VAISSEAU_HAUTEUR);
-		positionnerUnNouveauVaisseau(dimensionVaisseau, positionVaisseau);
+		positionnerUnNouveauVaisseau(dimensionVaisseau, positionVaisseau, 1);
 	}
 
 	public String recupererEspaceJeuDansChaineASCII() {
@@ -50,7 +50,7 @@ public class SpaceInvaders implements Jeu {
 		return vaisseau != null;
 	}
 
-	public void positionnerUnNouveauVaisseau(Dimension dimension, Position position) {
+	public void positionnerUnNouveauVaisseau(Dimension dimension, Position position, int Vitesse) {
 
 		int x = position.abscisse();
 		int y = position.ordonnee();
@@ -68,8 +68,7 @@ public class SpaceInvaders implements Jeu {
 			throw new DebordementEspaceJeuException(
 					"Le vaisseau déborde de l'espace jeu vers le bas à cause de sa hauteur");
 
-		vaisseau = new Vaisseau(longueurVaisseau, hauteurVaisseau);
-		vaisseau.positionner(x, y);
+		vaisseau = new Vaisseau(dimension,position,Vitesse);
 	}
 
 	private boolean estDansEspaceJeu(int x, int y) {
