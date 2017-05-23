@@ -76,14 +76,20 @@ public class SpaceInvaders implements Jeu {
 	}
 
 	public void deplacerVaisseauVersLaDroite() {
-		if (vaisseau.abscisseLaPlusADroite() < (longueur - 1))
+		if (vaisseau.abscisseLaPlusADroite() < (longueur - 1)) {
 			vaisseau.seDeplacerVersLaDroite();
+			if (!estDansEspaceJeu(vaisseau.abscisseLaPlusADroite(), vaisseau.ordonneeLaPlusHaute())) {
+				vaisseau.positionner(longueur - vaisseau.longueur(), vaisseau.ordonneeLaPlusHaute());
+			}
+		}
 	}
 
 	public void deplacerVaisseauVersLaGauche() {
 		if (0 < vaisseau.abscisseLaPlusAGauche())
 			vaisseau.seDeplacerVersLaGauche();
-
+		if (!estDansEspaceJeu(vaisseau.abscisseLaPlusAGauche(), vaisseau.ordonneeLaPlusHaute())) {
+			vaisseau.positionner(0, vaisseau.ordonneeLaPlusHaute());
+		}
 	}
 
 	public Vaisseau recupererVaisseau() {
