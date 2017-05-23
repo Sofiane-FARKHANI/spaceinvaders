@@ -195,5 +195,23 @@ public class SpaceInvadersTest {
 	       "..........VVV..\n" + 
 	       "..........VVV..\n" , spaceinvaders.recupererEspaceJeuDansChaineASCII());
 	   }
+	
+	@Test
+    public void test_VaisseauImmobile_DeplacerVaisseauVersLaDroite() {
+
+	   spaceinvaders.positionnerUnNouveauVaisseau(new Dimension(3,2),new Position(12,9), 3);
+       spaceinvaders.deplacerVaisseauVersLaDroite();
+       assertEquals("" + 
+       "...............\n" + 
+       "...............\n" +
+       "...............\n" + 
+       "...............\n" + 
+       "...............\n" + 
+       "...............\n" + 
+       "...............\n" + 
+       "...............\n" + 
+       "............VVV\n" + 
+       "............VVV\n" , spaceinvaders.recupererEspaceJeuDansChaineASCII());
+    }
 
 }
