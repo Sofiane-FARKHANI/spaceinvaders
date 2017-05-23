@@ -10,6 +10,7 @@ public class SpaceInvaders implements Jeu {
 	int longueur;
 	int hauteur;
 	Vaisseau vaisseau;
+	Missile missile;
 
 	public SpaceInvaders(int longueur, int hauteur) {
 		this.longueur = longueur;
@@ -17,10 +18,10 @@ public class SpaceInvaders implements Jeu {
 	}
 
 	public void initialiserJeu() {
-		Position positionVaisseau = new Position(this.longueur/2,this.hauteur-1);
+		Position positionVaisseau = new Position(this.longueur / 2, this.hauteur - 1);
 		Dimension dimensionVaisseau = new Dimension(Constante.VAISSEAU_LONGUEUR, Constante.VAISSEAU_HAUTEUR);
 		positionnerUnNouveauVaisseau(dimensionVaisseau, positionVaisseau, Constante.VAISSEAU_VITESSE);
-	 }
+	}
 
 	public String recupererEspaceJeuDansChaineASCII() {
 		StringBuilder espaceDeJeu = new StringBuilder();
@@ -37,9 +38,19 @@ public class SpaceInvaders implements Jeu {
 		char marque;
 		if (this.aUnVaisseauQuiOccupeLaPosition(x, y))
 			marque = Constante.MARQUE_VAISSEAU;
+		else if (this.aUnMissileQuiOccupeLaPosition(x, y))
+			marque = Constante.MARQUE_MISSILE;
 		else
 			marque = Constante.MARQUE_VIDE;
 		return marque;
+	}
+
+	private boolean aUnMissileQuiOccupeLaPosition(int x, int y) {
+		return this.aUnMissile() && missile.occupeLaPosition(x, y);
+	}
+
+	private boolean aUnMissile() {
+		return missile != null;
 	}
 
 	private boolean aUnVaisseauQuiOccupeLaPosition(int x, int y) {
@@ -58,7 +69,7 @@ public class SpaceInvaders implements Jeu {
 		if (!estDansEspaceJeu(x, y))
 			throw new HorsEspaceJeuException("La position du vaisseau est en dehors de l'espace jeu");
 
-		int longueurVaisseau = dimension.longueur(); 
+		int longueurVaisseau = dimension.longueur();
 		int hauteurVaisseau = dimension.hauteur();
 
 		if (!estDansEspaceJeu(x + longueurVaisseau - 1, y))
@@ -68,7 +79,7 @@ public class SpaceInvaders implements Jeu {
 			throw new DebordementEspaceJeuException(
 					"Le vaisseau déborde de l'espace jeu vers le bas à cause de sa hauteur");
 
-		vaisseau = new Vaisseau(dimension,position,Vitesse);
+		vaisseau = new Vaisseau(dimension, position, Vitesse);
 	}
 
 	private boolean estDansEspaceJeu(int x, int y) {
@@ -111,6 +122,22 @@ public class SpaceInvaders implements Jeu {
 	public boolean etreFini() {
 		return false;
 
+	}
+
+public Missile tirerUnMissile(Dimension dimensionMissile, int vitesseMissile) {
+		
+		int abscisseMilieuVaisseau = this.abscisseLaPlusAGauche() + (this.longueur() / 2);
+		int abscisseOrigineMissile = abscisseMilieuVaisseau - (dimensionMissile.longueur() / 2);
+
+		int ordonneeeOrigineMissile = this.ordonneeLaPlusBasse() - 1;
+		Position positionOrigineMissile = new Position(abscisseOrigineMissile, ordonneeeOrigineMissile);
+
+		return new Missile(dimensionMissile, positionOrigineMissile, vitesseMissile);
+	}
+
+	private Position calculerLaPositionDeTirDuMissile(Dimension dimensionMissile) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
