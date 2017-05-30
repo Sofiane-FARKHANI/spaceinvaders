@@ -125,7 +125,6 @@ public class SpaceInvaders implements Jeu {
 	}
 
 	public Missile tirerUnMissile(Dimension dimensionMissile, int vitesseMissile) {
-		return this.missile = this.vaisseau.tirerUnMissile(dimensionMissile,vitesseMissile);
+		return this.missile = this.vaisseau.tirerUnMissile(dimensionMissile, vitesseMissile);
 	}
-
 }
