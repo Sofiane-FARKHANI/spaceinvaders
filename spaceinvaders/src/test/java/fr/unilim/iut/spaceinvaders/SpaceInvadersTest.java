@@ -302,9 +302,11 @@ public class SpaceInvadersTest {
 	       "...............\n" + 
 	       "...............\n" + 
 	       "...............\n" + 
-	       ".......|||.....\n" + 
-	       ".......|||.....\n" + 
+	       ".......MMM.....\n" + 
+	       ".......MMM.....\n" + 
 	       ".....VVVVVVV...\n" + 
 	       ".....VVVVVVV...\n" , spaceinvaders.recupererEspaceJeuDansChaineASCII());
 	    }
+	    
+	 
 }
