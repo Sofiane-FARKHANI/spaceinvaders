@@ -128,9 +128,4 @@ public class SpaceInvaders implements Jeu {
 		return this.missile = this.vaisseau.tirerUnMissile(dimensionMissile,vitesseMissile);
 	}
 
-	private Position calculerLaPositionDeTirDuMissile(Dimension dimensionMissile) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 }

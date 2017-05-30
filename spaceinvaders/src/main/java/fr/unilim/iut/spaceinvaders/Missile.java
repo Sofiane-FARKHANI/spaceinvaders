@@ -11,5 +11,4 @@ public class Missile extends Sprite {
 		this.positionOrigineMissile=positionOrigineMissile2;
 		this.vitesseMissile=vitesseMissile;
 	}
-
 }
