@@ -24,7 +24,7 @@ public class SpaceInvaders implements Jeu {
 		positionnerUnNouveauVaisseau(Constante.VAISSEAU, 
 									 new Position((Constante.ECRAN.longueur() / 2) - (Constante.VAISSEAU.longueur() / 2), hauteur -1), Constante.VAISSEAU_VITESSE);
 
-		positionnerUnEnvahisseur(Constante.ENVAHISSEUR,
+		positionnerUnNouvelEnvahisseur(Constante.ENVAHISSEUR,
 				new Position((Constante.ECRAN.longueur()/2)-(Constante.ENVAHISSEUR.longueur()/2),40),Constante.ENVAHISSEUR_VITESSE);
 	}
 
@@ -45,6 +45,8 @@ public class SpaceInvaders implements Jeu {
 			marque = Constante.MARQUE_VAISSEAU;
 		else if (aUnMissileQuiOccupeLaPosition(x, y))
 			marque = Constante.MARQUE_MISSILE;
+		else if (aUnEnvahisseurQuiOccupeLaPosition(x,y))
+			marque = Constante.MARQUE_ENVAHISSEUR;
 		else
 			marque = Constante.MARQUE_VIDE;
 		return marque;
@@ -95,7 +97,7 @@ public class SpaceInvaders implements Jeu {
 		vaisseau.positionner(x, y);
 	}
 
-	public void positionnerUnEnvahisseur(Dimension dimension, Position position, int vitesse){
+	public void positionnerUnNouvelEnvahisseur(Dimension dimension, Position position, int vitesse){
 		int x = position.abscisse();
 		int y = position.ordonnee();
 
