@@ -19,13 +19,18 @@ public class DessinSpaceinvaders implements DessinJeu {
 		
 		int positionVaisseauX = spaceInvaders.getVaisseau().abscisse();
 		int positionVaisseauY = spaceInvaders.getVaisseau().ordonnee() - Constante.VAISSEAU.hauteur();
+
+		int positionEnvahisseurX = spaceInvaders.getEnvahisseur().abscisse();
+		int positionEnvahisseurY = spaceInvaders.getEnvahisseur().ordonnee() - Constante.ENVAHISSEUR.hauteur();
 		
 		g.setColor(Color.WHITE);
 		g.fillRect(0, 0, Constante.ECRAN.longueur(), Constante.ECRAN.hauteur());
 		
 		g.setColor(Color.GRAY);
-		g.fillRect(positionVaisseauX, positionVaisseauY, Constante.VAISSEAU.longueur(), Constante.VAISSEAU.hauteur());		
-		
+		g.fillRect(positionVaisseauX, positionVaisseauY, Constante.VAISSEAU.longueur(), Constante.VAISSEAU.hauteur());
+
+		g.setColor(Color.RED);
+		g.fillRect(positionEnvahisseurX,positionEnvahisseurY,Constante.ENVAHISSEUR.longueur(),Constante.ENVAHISSEUR.hauteur());
 		
 		if(spaceInvaders.aUnMissile()) {
 			int positionMissileX = spaceInvaders.getMissile().abscisse();
