@@ -13,6 +13,7 @@ public class SpaceInvaders implements Jeu {
 	Vaisseau vaisseau;
 	Missile missile;
 	Envahisseur envahisseur;
+	boolean changerSens;
 
 	public SpaceInvaders(int longueur, int hauteur) {
 		this.longueur = longueur;
@@ -109,7 +110,7 @@ public class SpaceInvaders implements Jeu {
 			throw new DebordementEspaceJeuException("L'envahisseur déborde de l'espace de jeu vers la droite à " +
 					"cause de sa longueur");
 
-		if(!estDansEspaceJeu(x, y-longueurEnvahisseur-1))
+		if(!estDansEspaceJeu(x, y-hauteurEnvahisseur-1))
 			throw new DebordementEspaceJeuException("L'envahisseur déborde de l'espace jeu vers le haut à cause " +
 					"de sa hauteur");
 
@@ -138,6 +139,23 @@ public class SpaceInvaders implements Jeu {
 		}
 	}
 
+	public void deplacerEnvahisseurVersLaGauche() {
+		if(0 < envahisseur.abscisseLaPlusAGauche()){
+			envahisseur.deplacerHorizontalementVers(Direction.GAUCHE);
+		}
+		if(!estDansEspaceJeu(envahisseur.abscisseLaPlusAGauche(),envahisseur.ordonneeLaPlusHaute())){
+			envahisseur.positionner(0,envahisseur.ordonnee());
+		}
+	}
+
+	public void deplacerEnvahisseurVersLaDroite(){
+		if(envahisseur.abscisseLaPlusADroite()<(longueur-1)) {
+			envahisseur.deplacerHorizontalementVers(Direction.DROITE);
+			if(!estDansEspaceJeu(envahisseur.abscisseLaPlusADroite(),envahisseur.ordonneeLaPlusHaute()))
+				envahisseur.positionner(longueur-envahisseur.longueur(),envahisseur.ordonnee());
+		}
+	}
+
 	public Vaisseau getVaisseau() {
 		return this.vaisseau;
 	}
@@ -146,18 +164,36 @@ public class SpaceInvaders implements Jeu {
 		return this.envahisseur;
 	}
 
+	public void changerSensDeplacementEnvahisseur(){
+		if(aUnEnvahisseurQuiOccupeLaPosition(0,40)){
+			changerSens = true;
+		} else if (aUnEnvahisseurQuiOccupeLaPosition(Constante.ECRAN.longueur()-1,40)){
+			changerSens = false;
+		}
+
+		if(changerSens){
+			deplacerEnvahisseurVersLaDroite();
+		} else {
+			deplacerEnvahisseurVersLaGauche();
+		}
+	}
+
 	public void evoluer(Commande commandeUser) {
-		if(commandeUser.gauche)
+		if (commandeUser.gauche)
 			deplacerVaisseauVersLaGauche();
-		
-		if(commandeUser.droite)
+
+		if (commandeUser.droite)
 			deplacerVaisseauVersLaDroite();
-		
-		if(commandeUser.espace && !aUnMissile())
+
+		if (commandeUser.espace && !aUnMissile())
 			tirerUnMissile(Constante.MISSILE, Constante.MISSILE_VITESSE);
 
-		if(this.missile != null)
+		if (this.missile != null)
 			deplacerMissile();
+
+		if (this.envahisseur != null) {
+			changerSensDeplacementEnvahisseur();
+		}
 	}
 
 	public boolean etreFini() {
