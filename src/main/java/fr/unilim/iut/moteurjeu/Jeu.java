@@ -14,10 +14,10 @@ public interface Jeu {
 	 * @param commandeUser
 	 *            commande utilisateur
 	 */
-	public void evoluer(Commande commandeUser);
+	void evoluer(Commande commandeUser);
 	
 	/**
 	 * @return true si et seulement si le jeu est fini
 	 */
-	public boolean etreFini();
+	boolean etreFini();
 }
