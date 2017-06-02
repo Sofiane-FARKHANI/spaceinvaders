@@ -1,9 +1,10 @@
 package fr.unilim.iut.spaceinvaders.utils;
 
-@SuppressWarnings("serial")
 public class DebordementEspaceJeuException extends RuntimeException {
 
-    public DebordementEspaceJeuException(String message) {
+	private static final long serialVersionUID = 1L;
+
+	public DebordementEspaceJeuException(String message) {
 	    super(message);
     }
 }

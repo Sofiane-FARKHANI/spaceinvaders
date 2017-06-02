@@ -1,10 +1,10 @@
 package fr.unilim.iut.spaceinvaders.utils;
 
-@SuppressWarnings("serial")
 public class HorsEspaceJeuException extends RuntimeException {
+	
+	private static final long serialVersionUID = 1L;
 
 	public HorsEspaceJeuException(String message) {
 		super(message);
 	}
-
 }
