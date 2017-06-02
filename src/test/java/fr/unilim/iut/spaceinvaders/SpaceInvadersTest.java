@@ -504,4 +504,35 @@ public class SpaceInvadersTest {
 				"EEE............\n", spaceinvaders.recupererEspaceJeuDansChaineASCII());
 	}
 
+	@Test
+	public void test_unNouvelEncvahisseurEstCorrectementPositionneDansEspaceJeu() {
+		spaceinvaders.positionnerUnNouvelEnvahisseur(new Dimension(1, 1), new Position(7, 9), 1);
+		assertEquals("" +
+				".......E.......\n" +
+				"...............\n" +
+				"...............\n" +
+				"...............\n" +
+				"...............\n" +
+				"...............\n" +
+				"...............\n" +
+				"...............\n" +
+				"...............\n" +
+				"...............\n", spaceinvaders.recupererEspaceJeuDansChaineASCII());
+	}
+
+	@Test
+	public void test_unNouvelEnvahisseurAvecDimensionEstCorrectementPositionneDansEspaceJeu() {
+		spaceinvaders.positionnerUnNouvelEnvahisseur(new Dimension(3, 2), new Position(115, 40), 1);
+		assertEquals("" +
+				"......EEE......\n" +
+				"......EEE......\n" +
+				"...............\n" +
+				"...............\n" +
+				"...............\n" +
+				"...............\n" +
+				"...............\n" +
+				"...............\n" +
+				"...............\n" +
+				"...............\n", spaceinvaders.recupererEspaceJeuDansChaineASCII());
+	}
 }

@@ -25,7 +25,7 @@ public class SpaceInvaders implements Jeu {
 									 new Position((Constante.ECRAN.longueur() / 2) - (Constante.VAISSEAU.longueur() / 2), hauteur -1), Constante.VAISSEAU_VITESSE);
 
 		positionnerUnNouvelEnvahisseur(Constante.ENVAHISSEUR,
-				new Position((Constante.ECRAN.longueur()/2)-(Constante.ENVAHISSEUR.longueur()/2),40),Constante.ENVAHISSEUR_VITESSE);
+				new Position((115),40),Constante.ENVAHISSEUR_VITESSE);
 	}
 
 	public String recupererEspaceJeuDansChaineASCII() {
@@ -112,12 +112,12 @@ public class SpaceInvaders implements Jeu {
 			throw new DebordementEspaceJeuException("L'envahisseur déborde de l'espace de jeu vers la droite à " +
 					"cause de sa longueur");
 
-		if(!estDansEspaceJeu(x, y-hauteurEnvahisseur-1))
+		if(!estDansEspaceJeu(x, y-hauteurEnvahisseur+1))
 			throw new DebordementEspaceJeuException("L'envahisseur déborde de l'espace jeu vers le haut à cause " +
 					"de sa hauteur");
 
-		envahisseur = new Envahisseur(dimension,position,vitesse);
-		envahisseur.positionner(x,y);
+		this.envahisseur = new Envahisseur(dimension,position,vitesse);
+		this.envahisseur.positionner(x,y);
 	}
 
 	private boolean estDansEspaceJeu(int x, int y) {
@@ -143,18 +143,18 @@ public class SpaceInvaders implements Jeu {
 
 	public void deplacerEnvahisseurVersLaGauche() {
 		if(0 < envahisseur.abscisseLaPlusAGauche()){
-			envahisseur.deplacerHorizontalementVers(Direction.GAUCHE);
+			this.envahisseur.deplacerHorizontalementVers(Direction.GAUCHE);
 		}
 		if(!estDansEspaceJeu(envahisseur.abscisseLaPlusAGauche(),envahisseur.ordonneeLaPlusHaute())){
-			envahisseur.positionner(0,envahisseur.ordonnee());
+			this.envahisseur.positionner(0,envahisseur.ordonnee());
 		}
 	}
 
 	public void deplacerEnvahisseurVersLaDroite(){
 		if(envahisseur.abscisseLaPlusADroite()<(longueur-1)) {
-			envahisseur.deplacerHorizontalementVers(Direction.DROITE);
+			this.envahisseur.deplacerHorizontalementVers(Direction.DROITE);
 			if(!estDansEspaceJeu(envahisseur.abscisseLaPlusADroite(),envahisseur.ordonneeLaPlusHaute()))
-				envahisseur.positionner(longueur-envahisseur.longueur(),envahisseur.ordonnee());
+				this.envahisseur.positionner(longueur-envahisseur.longueur(),envahisseur.ordonnee());
 		}
 	}
 
