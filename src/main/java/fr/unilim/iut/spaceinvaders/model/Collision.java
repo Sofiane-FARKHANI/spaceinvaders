@@ -1,31 +1,31 @@
 package fr.unilim.iut.spaceinvaders.model;
 
 public class Collision {
-    static public boolean detecterCollision(Sprite sprite1, Sprite sprite2) {
+    static public boolean detecterCollision(Sprite objetNumero1, Sprite objetNumero2) {
         boolean collision = false;
 
-        if(detecterCollision(sprite1, new Position(sprite2.abscisseLaPlusAGauche(), sprite2.ordonneeLaPlusHaute())))
+        if(detecterCollision(objetNumero1, new Position(objetNumero2.abscisseLaPlusAGauche(), objetNumero2.ordonneeLaPlusHaute())))
             collision = true;
 
-        else if(detecterCollision(sprite1, new Position(sprite2.abscisseLaPlusADroite(), sprite2.ordonneeLaPlusHaute())))
+        else if(detecterCollision(objetNumero1, new Position(objetNumero2.abscisseLaPlusADroite(), objetNumero2.ordonneeLaPlusHaute())))
             collision = true;
 
-        else if(detecterCollision(sprite1, new Position(sprite2.abscisseLaPlusAGauche(), sprite2.ordonneeLaPlusBasse())))
+        else if(detecterCollision(objetNumero1, new Position(objetNumero2.abscisseLaPlusAGauche(), objetNumero2.ordonneeLaPlusBasse())))
             collision = true;
 
-        else if(detecterCollision(sprite1, new Position(sprite2.abscisseLaPlusADroite(), sprite2.ordonneeLaPlusBasse())))
+        else if(detecterCollision(objetNumero1, new Position(objetNumero2.abscisseLaPlusADroite(), objetNumero2.ordonneeLaPlusBasse())))
             collision = true;
 
-        else if(detecterCollision(sprite2, new Position(sprite1.abscisseLaPlusAGauche(), sprite1.ordonneeLaPlusHaute())))
+        else if(detecterCollision(objetNumero2, new Position(objetNumero1.abscisseLaPlusAGauche(), objetNumero1.ordonneeLaPlusHaute())))
             collision = true;
 
-        else if(detecterCollision(sprite2, new Position(sprite1.abscisseLaPlusADroite(), sprite1.ordonneeLaPlusHaute())))
+        else if(detecterCollision(objetNumero2, new Position(objetNumero1.abscisseLaPlusADroite(), objetNumero1.ordonneeLaPlusHaute())))
             collision = true;
 
-        else if(detecterCollision(sprite2, new Position(sprite1.abscisseLaPlusAGauche(), sprite1.ordonneeLaPlusBasse())))
+        else if(detecterCollision(objetNumero2, new Position(objetNumero1.abscisseLaPlusAGauche(), objetNumero1.ordonneeLaPlusBasse())))
             collision = true;
 
-        else if(detecterCollision(sprite2, new Position(sprite1.abscisseLaPlusADroite(), sprite1.ordonneeLaPlusBasse())))
+        else if(detecterCollision(objetNumero2, new Position(objetNumero1.abscisseLaPlusADroite(), objetNumero1.ordonneeLaPlusBasse())))
             collision = true;
 
         return collision;

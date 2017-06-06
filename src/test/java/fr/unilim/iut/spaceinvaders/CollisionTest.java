@@ -11,7 +11,7 @@ import org.junit.Test;
 
 public class CollisionTest {
     @Test
-    public void test_deuxVaisseauxEnCollision_PointHautGauche_devraitDetecterCollision() {
+    public void test_2sVaisseauxEnCollisionPointHautGaucheCollision() {
         Vaisseau v1 = new Vaisseau(new Dimension(10, 10), new Position(0, 0), 1);
         Vaisseau v2 = new Vaisseau(new Dimension(10, 10), new Position(5, 5), 1);
 
@@ -19,7 +19,7 @@ public class CollisionTest {
     }
 
     @Test
-    public void test_deuxVaisseauxEnCollision_PointHautDroite_devraitDetecterCollision() {
+    public void test_2VaisseauxEnCollisionPointHautDroiteCollision() {
         Vaisseau v1 = new Vaisseau(new Dimension(10, 10), new Position(0, 0), 1);
         Vaisseau v2 = new Vaisseau(new Dimension(10, 10), new Position(-5, 5), 1);
 
@@ -27,7 +27,7 @@ public class CollisionTest {
     }
 
     @Test
-    public void test_deuxVaisseauxEnCollision_PointBasGauche_devraitDetecterCollision() {
+    public void test_2VaisseauxEnCollisionPielBasGaucheCollision() {
         Vaisseau v1 = new Vaisseau(new Dimension(10, 10), new Position(0, 0), 1);
         Vaisseau v2 = new Vaisseau(new Dimension(10, 10), new Position(5, -5), 1);
 
@@ -35,7 +35,7 @@ public class CollisionTest {
     }
 
     @Test
-    public void test_deuxVaisseauxEnCollision_PointBasDroite_devraitDetecterCollision() {
+    public void test_2VaisseauxEnCollisionPixelDroiteEtEnBasCollision() {
         Vaisseau v1 = new Vaisseau(new Dimension(10, 10), new Position(0, 0), 1);
         Vaisseau v2 = new Vaisseau(new Dimension(10, 10), new Position(5, -5), 1);
 
@@ -43,7 +43,7 @@ public class CollisionTest {
     }
 
     @Test
-    public void test_deuxVaisseauxPasEnCollision_neDevraitPasDetecterCollision() {
+    public void test_2VaisseauxPasEnCollisionAucuneCollistionDetecter() {
         Vaisseau v1 = new Vaisseau(new Dimension(10, 10), new Position(0, 0), 1);
         Vaisseau v2 = new Vaisseau(new Dimension(10, 10), new Position(5, 20), 1);
 
@@ -51,7 +51,7 @@ public class CollisionTest {
     }
 
     @Test
-    public void test_vaisseauEtPoint_devraitDetecterCollision() {
+    public void test_vaisseauEtPixelCollision() {
         Vaisseau v1 = new Vaisseau(new Dimension(10, 10), new Position(0, 10), 1);
         Position p = new Position(5, 5);
 
@@ -59,7 +59,7 @@ public class CollisionTest {
     }
 
     @Test
-    public void test_vaisseauEtPoint_neDevraitPasDetecterCollision() {
+    public void test_vaisseauEtPixelAucuneCollision() {
         Vaisseau v1 = new Vaisseau(new Dimension(10, 10), new Position(0, 10), 1);
         Position p = new Position(20, 20);
 
