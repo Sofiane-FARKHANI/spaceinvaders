@@ -29,4 +29,7 @@ public class Vaisseau extends Sprite {
 		return positionOrigineMissile;
 	}
 
+	public Vaisseau(){
+		super();
+	}
 }

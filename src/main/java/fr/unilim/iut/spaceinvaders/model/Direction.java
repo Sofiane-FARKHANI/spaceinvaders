@@ -20,4 +20,27 @@ public enum Direction {
 		return this.valeur;
 	}
 
+	public static Direction changeSensEnvahisseur(Direction direction){
+		switch(direction){
+			case DROITE:
+				return GAUCHE;
+			case GAUCHE:
+				return DROITE;
+
+			case HAUT:
+				return BAS;
+
+			case BAS:
+				return HAUT;
+
+			case HAUT_ECRAN:
+				return BAS_ECRAN;
+
+			case BAS_ECRAN:
+				return HAUT_ECRAN;
+
+			default:
+				return null;
+		}
+	}
 }

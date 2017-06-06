@@ -36,6 +36,6 @@ public class Collision {
         int y = position.ordonnee();
 
         return (x >= sprite.abscisseLaPlusAGauche() && x <= sprite.abscisseLaPlusADroite())
-                && (y >= sprite.ordonneeLaPlusHaute() && y <= sprite.ordonneeLaPlusBasse());
+               && (y >= sprite.ordonneeLaPlusHaute() && y <= sprite.ordonneeLaPlusBasse());
     }
 }
