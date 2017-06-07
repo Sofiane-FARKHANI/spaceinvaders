@@ -130,6 +130,12 @@ public class SpaceInvaders implements Jeu {
 		if (aUnEnvahisseur()) {
 			deplacerAutomatiquementEnvahisseur();
 		}
+		if(collisionEntreLeMissileEtEnvahisseur()){
+			System.out.println("Collision");
+			System.out.println("Gagné");
+			// Arrêt total du programme
+			System.exit(0);
+		}
 	}
 
 	public boolean etreFini() {
@@ -187,5 +193,18 @@ public class SpaceInvaders implements Jeu {
 
 	public Vaisseau getVaisseau(){
 		return this.vaisseau;
+	}
+
+	public boolean collisionEntreLeMissileEtEnvahisseur(){
+		if(aUnEnvahisseur() && aUnMissile()){
+			if(Collision.detecterCollision(envahisseur,missile)){
+				return true;
+			}
+		}
+		return false;
+	}
+
+	public boolean FinDeLaPartie(){
+		return collisionEntreLeMissileEtEnvahisseur();
 	}
 }

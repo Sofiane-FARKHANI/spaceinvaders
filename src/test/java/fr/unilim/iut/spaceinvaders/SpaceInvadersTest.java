@@ -3,6 +3,7 @@ package fr.unilim.iut.spaceinvaders;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -425,5 +426,34 @@ public class SpaceInvadersTest {
 				"...............\n" +
 				"...............\n" +
 				"...............\n" , spaceinvaders.recupererEspaceJeuDansChaineASCII());
+	}
+
+	@Test
+	public void testCollisionEntreLeMissileEtLEnvahisseurPourUneFinDePartie(){
+		// Attention à la position des sprite le haut de l'écran correspond à l'origine du repère
+		spaceinvaders.positionnerUnNouvelEnvahisseur(new Dimension(3,2),new Position(2,1),1);
+		spaceinvaders.positionnerUnNouveauVaisseau(new Dimension(3,2),new Position(7,9),1);
+		spaceinvaders.tirerUnMissile(new Dimension(1,1),1);
+
+		for(int i = 0;i<6;i++){
+			spaceinvaders.deplacerAutomatiquementEnvahisseur();
+			spaceinvaders.deplacerMissile();
+		}
+
+		Assert.assertEquals(true,spaceinvaders.FinDeLaPartie());
+	}
+
+	@Test
+	public void testCollisionEntreLeMissileEtLEnvahisseurSansUneFinDePartie(){
+		spaceinvaders.positionnerUnNouvelEnvahisseur(new Dimension(3,2),new Position(6,1),1);
+		spaceinvaders.positionnerUnNouveauVaisseau(new Dimension(3,2),new Position(7,9),1);
+		spaceinvaders.tirerUnMissile(new Dimension(1,1),1);
+
+		for(int i = 0;i<6;i++){
+			spaceinvaders.deplacerAutomatiquementEnvahisseur();
+			spaceinvaders.deplacerMissile();
+		}
+
+		Assert.assertEquals(false,spaceinvaders.FinDeLaPartie());
 	}
 }
