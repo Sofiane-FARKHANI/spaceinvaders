@@ -133,8 +133,12 @@ public class SpaceInvaders implements Jeu {
 		if(collisionEntreLeMissileEtEnvahisseur()){
 			System.out.println("Collision");
 			System.out.println("Gagné");
-			// Arrêt total du programme
-			System.exit(0);
+			try{
+				Thread.sleep(10000);
+			} catch (InterruptedException e){
+				System.out.println("Problème.");
+			}
+
 		}
 	}
 
