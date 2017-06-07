@@ -15,6 +15,6 @@ public class Constante {
 	public static final char MARQUE_ENVAHISSEUR = 'E';
 
 	public static final Dimension ENVAHISSEUR = new Dimension(33,20);
-	public static final int ENVAHISSEUR_VITESSE = 1;
+	public static final int ENVAHISSEUR_VITESSE = 5;
 
 }

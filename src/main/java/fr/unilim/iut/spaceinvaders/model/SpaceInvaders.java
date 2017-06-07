@@ -8,12 +8,12 @@ import fr.unilim.iut.spaceinvaders.utils.MissileException;
 
 public class SpaceInvaders implements Jeu {
 
-	int longueur;
-	int hauteur;
-	Vaisseau vaisseau;
-	Missile missile;
-	Envahisseur envahisseur;
-	Direction sensEnvahisseur;
+	private int longueur;
+	private int hauteur;
+	private Vaisseau vaisseau;
+	private Missile missile;
+	private Envahisseur envahisseur;
+	private Direction sensEnvahisseur;
 
 	public SpaceInvaders(int longueur, int hauteur) {
 		this.longueur = longueur;
